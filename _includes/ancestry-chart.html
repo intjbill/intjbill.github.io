@@ -1,0 +1,63 @@
+<div id="ancestry">
+</div>
+<script>
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Ethnicity', 'Percent'],
+          ['Poland, Slovakia, Hungary & Romania',     39],
+          ['Germanic Europe',      30],
+          ['Baltics',  17],
+          ['Ireland & Scotland', 8],
+          ['England, Wales & Northwestern Europe',    4],
+          ['Sweden',    2]
+        ]);
+
+        var options = {
+			title: 'Estimated Ancestry By Percentage',
+			is3D: true,
+			titleTextStyle: {
+				color: '#34302b',    
+				fontSize: 16, 
+				fontName: 'Segoe UI',
+				bold: false,    
+				italic: true},
+			'chartArea': {'width': '80%', 'height': '80%'},
+			pieSliceText:'percentage',
+			pieSliceTextStyle:{
+				color: '#f6f4f7', 
+				fontName: 'Segoe UI', 
+				fontSize: 12, 
+				bold: true},
+			width: '100%',
+			height: 400,
+			legend: { 
+				position: 'right',  
+				alignment: 'center',
+				orientation: 'vertical', 
+				textStyle: {
+					color:'#34302b',
+					fontName: 'Segoe UI'} 
+					},
+			backgroundColor: 'none', 
+			tooltip:{
+				text:'percentage',
+				textStyle: {fontName: 'Segoe UI',}},
+			slices: {
+            0: { color: '#4e208a' }, //darker purple Poland, Slovakia, Hungary & Romania
+			1: { color: '#7f36da' }, //blacklight purple French & German Germanic Europe
+			2: { color: '#dcab3f' }, //steelers gold FFb81c Greek & Balkan The Baltics
+			3: { color: '#1d9461' }, //Irish and Scottish
+			4: { color: '#d8275d' }, //darker hot pink British & Irish
+			5: { color: '#27d3d3' }, //neon blue Scandinavian
+			}
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('ancestry'));
+
+        chart.draw(data, options);
+      }
+</script>

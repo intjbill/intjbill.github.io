@@ -1,0 +1,44 @@
+---
+layout: page
+---
+
+
+	<ul id="markdown-toc">
+		<li><a href="#Recovered 2002">2002</a></li>
+		<li><a href="#Recovered 2003">2003</a></li>
+		<li><a href="#Recovered 2004">2004</a></li>
+		<li><a href="#Recovered 2013">2013</a></li>
+		<li><a href="#Recovered 2017">2017</a></li>
+		<li><a href="#The Expeditionary Prologue">The Expeditionary Prologue</a></li>
+		<li><a href="#The 1st Expedition">The 1st Expedition</a></li>
+		<li><a href="#The 2nd Expedition">The 2nd Expedition</a></li>
+		<li><a href="#The 3rd Expedition">The 3rd Expedition</a></li>
+		<li><a href="#The 4th Expedition">The 4th Expedition</a></li>
+		<li><a href="#The 5th Expedition">The 5th Expedition</a></li>
+		<li><a href="#The Keto Prologue">The Keto Prologue</a></li>
+		<li><a href="#The 1st Expedition">The 1st Expedition</a></li>
+		<li><a href="#The 13th Expedition">The 13th Expedition</a></li>
+		<li><a href="#The 14th Expedition">The 14th Expedition</a></li>
+		<li><a href="#The 15th Expedition">The 15th Expedition</a></li>
+		<li><a href="#The 16th Expedition">The 16th Expedition</a></li>
+		<li><a href="#The 17th Expedition">The 17th Expedition</a></li>
+		<li><a href="#The 18th Expedition">The 18th Expedition</a></li>
+		<li><a href="#The 19th Expedition">The 19th Expedition</a></li>
+		<li><a href="#The 22nd Expedition">The 22nd Expedition</a></li>
+		<li><a href="#The 23rd Expedition">The 23rd Expedition</a></li>
+	</ul>
+
+
+
+
+{% for category in site.categories %}
+  <h2 id="{{ category | first | replace: '-', ' '  }}">{{ category | first | replace: '-', ' ' }} </h2>
+    <ol>
+    {% for post in category.last reversed %}
+      <li><i>{{ post.date| date: "%B %-d, %Y" }}</i>: <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ol>
+  
+{% endfor %}
+
+

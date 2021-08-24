@@ -1,0 +1,72 @@
+<div id="weight_chart"></div>
+<script>
+       google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('date', 'Date');
+    data.addColumn('number', 'Weight');
+
+    data.addRows([
+		[new Date(2017,11,31),331],[new Date(2018,3,2),321],
+		[new Date(2018,4,14),280.5],[new Date(2018,5,25),250.25],[new Date(2018,6,09),273],[new Date(2018,6,15),278.75],
+		[new Date(2018,6,24),278],[new Date(2018,6,25),281.25],[new Date(2018,7,22),291],[new Date(2018,7,28),288],
+		[new Date(2018,8,04),277],[new Date(2018,8,21),260.25],[new Date(2018,9,09),245],[new Date(2018,10,20),218],
+		[new Date(2019,0,22),254.25],[new Date(2019,2,17),282],[new Date(2019,3,04),290],[new Date(2019,3,24),295],
+		[new Date(2019,3,25),295],[new Date(2019,4,03),295],[new Date(2019,4,10),295],[new Date(2019,4,11),295],
+		[new Date(2019,4,12),295],[new Date(2019,4,22),295],[new Date(2019,6,10),250],[new Date(2019,7,21),226],
+		[new Date(2019,9,02),211.25],[new Date(2019,11,30),271],[new Date(2019,11,31),271],[new Date(2020,0,01),271],
+		[new Date(2020,0,02),271],[new Date(2020,0,03),271],[new Date(2020,0,04),271],[new Date(2020,0,05),271],
+		[new Date(2020,0,06),271],[new Date(2020,0,16),271],[new Date(2020,0,18),272],[new Date(2020,0,23),277],
+		[new Date(2020,0,24),276],[new Date(2020,0,26),271],[new Date(2020,0,29),274.25],[new Date(2020,1,12),277],
+		[new Date(2020,2,07),271],[new Date(2020,2,25),237],[new Date(2020,3,20),277],[new Date(2020,3,24),276],
+		[new Date(2020,4,06),283],[new Date(2020,5,18),292],[new Date(2020,6,30),267.75],[new Date(2020,8,10),255.75],
+		[new Date(2020,9,22),244],[new Date(2020,10,23),241],[new Date(2020,11,3),237],[new Date(2021,0,14),223],
+        [new Date(2021,1,25),220.25],[new Date(2021,3,08),213],[new Date(2021,4,20),209],[new Date(2021,6,01),210],
+		[new Date(2021,7,12),197.5]
+    ]);
+
+
+         var options = {
+          title: 'Weight Since December 31, 2017',
+		  titleTextStyle: {
+        color: '#f1f1f1',    // any HTML string color ('red', '#cc00cc')
+        fontSize: 16, // 12, 18 whatever you want (don't specify px)
+        fontName: 'Segoe UI',
+		bold: false,    // true or false
+		italic: true,
+    },
+		 'chartArea': {'width': '80%', 'height': '80%'},
+          width: '100%',
+          height: 500,
+		  legend: 'none',
+		  backgroundColor: '#101820',
+          hAxis: {
+            format: 'MMM',
+			gridlines: {color: '#4F2683',
+			units: {
+              years: {format: ['Y']},
+              months: {format: ['M']}
+            }
+			},
+			minorGridlines: {color: '#4F2683',},
+			textStyle: {color: '#ec1690'},
+          },
+          vAxis: {
+            gridlines: {color: '#4F2683'},
+			minorGridlines: {color: 'none'},
+			textStyle: {color: '#FFB81C'}
+          },
+		  series: {
+          // Gives each series an axis name that matches the Y-axis below.
+          0: {color: '#0af0f0'}
+        },
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('weight_chart'));
+
+        chart.draw(data, options);
+      }
+</script>
